@@ -1,0 +1,117 @@
+.hidden {
+    display: none;
+}
+
+i {
+    display: inline-block;
+    padding: 3px;
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.geotabButton {
+    color: #444444;
+}
+
+.geotabButton.leftGeotabIcon.geotabButtonIcons {
+    float: left;
+    left: 0.7em;
+    top: 50%;
+    margin-top: -5.5px;
+}
+
+.geotabButton .geotabButtonIcons {
+    padding-right: 0;
+}
+
+.svgIcon {
+    width: 11px;
+    height: 11px;
+}
+
+.geotabSwitchButton {
+    float: right;
+}
+
+body {
+    font: 16px Arial;
+}
+
+.autocomplete {
+    /*the container must be positioned relative:*/
+    position: relative;
+    display: inline-block;
+}
+
+input {
+    border: 1px solid transparent;
+    background-color: #f1f1f1;
+    padding: 10px;
+    font-size: 16px;
+}
+
+input[type=text] {
+    background-color: #f1f1f1;
+    width: 100%;
+}
+
+input[type=submit] {
+    background-color: DodgerBlue;
+    color: #fff;
+}
+
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.autocomplete-items div:hover {
+    /*when hovering an item:*/
+    background-color: #e9e9e9;
+}
+
+.autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: #2c7ab1 !important;
+}
+
+.secondaryText {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    color: #757575;
+    fill: #757575;
+}
+
+.mainText {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #25477b;
+    fill: #25477b;
+}
+
+a {
+    text-decoration: none;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "IOX-Output",
+  "supportEmail": "shansangha@geotab.com",
+  "version": "0.0.1",
+  "items": [{
+    "url": "output.html",
+    "path": "",
+    "menuName": {
+      "en": "IOX-Output"
+    },
+    "icon": "images/icon.svg"
+  }],
+  "dev": {
+    "root": "output",
+    "dist": {
+      "host": "https://www.example.com/myaddin/"
+    }
+  }
+}
