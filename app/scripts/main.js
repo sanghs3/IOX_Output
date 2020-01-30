@@ -787,10 +787,12 @@ geotab.addin.output = function() {
                     var button = document.createElement("button");
                     //console.log(deviceJSON[CurrentActiveIndex].currentstatus)
                     if (deviceJSON[CurrentActiveIndex].currentstatus) {
-                        button.setAttribute("class", "geotabButton positiveButton")
+                        button.setAttribute("class", "geotabButton positiveButton");
+                        button.setAttribute("style", "width:50%;");
                         button.innerHTML = "ON";
                     } else {
-                        button.setAttribute("class", "geotabButton negativeButton")
+                        button.setAttribute("class", "geotabButton negativeButton");
+                        button.setAttribute("style", "width:50%;");
                         button.innerHTML = "OFF";
                     }
                     spanInner.append(button);
@@ -827,10 +829,12 @@ geotab.addin.output = function() {
                                     var button = document.createElement("button");
                                     if (deviceJSON[CurrentActiveIndex].messagestatus[j].messageContent.isRelayOn) {
                                         button.setAttribute("class", "geotabButton positiveButton")
+                                        button.setAttribute("style", "width:100%;");
                                         button.innerHTML = "ON";
                                         th1.append(button);
                                     } else {
                                         button.setAttribute("class", "geotabButton negativeButton")
+                                        button.setAttribute("style", "width:100%;");
                                         button.innerHTML = "OFF";
                                         th1.append(button);
                                     }
@@ -903,6 +907,7 @@ geotab.addin.output = function() {
             labelON.setAttribute("class", "geotabButton disabled");
         }
         labelON.setAttribute("for", "true" + deviceJSON[CurrentActiveIndex].id);
+        labelON.setAttribute("style", "width:20%;");
         labelON.innerHTML = "ON";
 
         var inputOFF = document.createElement("input");
@@ -918,6 +923,7 @@ geotab.addin.output = function() {
             labelOFF.setAttribute("class", "geotabButton disabled");
         }
         labelOFF.setAttribute("for", "false" + deviceJSON[CurrentActiveIndex].id);
+        labelOFF.setAttribute("style", "width:20%;");
 
         labelOFF.innerHTML = "OFF";
 
@@ -951,9 +957,11 @@ geotab.addin.output = function() {
             }
             if (deviceJSON[CurrentActiveIndex].currentstatus) {
                 button.setAttribute("class", "geotabButton positiveButton")
+                button.setAttribute("style", "width:50%;");
                 button.innerHTML = "ON";
             } else {
                 button.setAttribute("class", "geotabButton negativeButton")
+                button.setAttribute("style", "width:50%;");
                 button.innerHTML = "OFF";
             }
         }
@@ -1156,6 +1164,7 @@ geotab.addin.output = function() {
         var i;
         for (i = 10; i < table.length; i++) {
             table[i].removeAttribute("style");
+            table[i].setAttribute("style", "width: 100%;");
         }
         if (table.length == 30) {
             document.getElementById("Pend" + id).removeAttribute("style");
