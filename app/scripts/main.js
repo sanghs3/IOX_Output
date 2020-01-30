@@ -1295,9 +1295,9 @@ geotab.addin.output = function() {
 
 
             // example of setting url state
-            freshState.setState({
-                hello: 'world'
-            });
+            // freshState.setState({
+            //     hello: 'world'
+            // });
 
             // getting the current user info
             freshApi.getSession(session => {
