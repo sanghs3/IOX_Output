@@ -1221,9 +1221,8 @@ geotab.addin.output = function() {
 
             api = freshApi;
             state = freshState;
-            var result = state.getGroupFilter()
-            var groupList = result.map(x => x.id);
-            console.log(result);
+            var groupList = state.getGroupFilter()
+            console.log(groupList);
             periodPicker_today.click();
             InatializeCustomDateSelector();
 
