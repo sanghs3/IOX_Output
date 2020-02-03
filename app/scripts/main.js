@@ -1221,54 +1221,7 @@ geotab.addin.output = function() {
 
             api = freshApi;
             state = freshState;
-            var groupList = state.getGroupFilter()
-            console.log(groupList);
-            periodPicker_today.click();
-            InatializeCustomDateSelector();
 
-            // Get Groups
-            groupAPIcall(api);
-
-            api.call("Get", { "typeName": "Device", "search": { "fromDate": new Date().toISOString(), "groups": groupList } },
-                function(result) {
-                    var currentDevice = {};
-                    var callsArray = [];
-                    for (var i = 0; i < result.length; i++) {
-                        if (result[i].vehicleIdentificationNumber == "" || result[i].vehicleIdentificationNumber == undefined) {
-                            currentDevice = {
-                                "name": result[i].name,
-                                "id": result[i].id,
-                                "serialnumber": result[i].serialNumber,
-                                "groups": result[i].groups,
-                                "vin": "00000000",
-                                "messagestatus": [],
-                                "currentstatus": "",
-                                "hitMax": false
-                            };
-
-                        } else {
-                            currentDevice = {
-                                "name": result[i].name,
-                                "id": result[i].id,
-                                "serialnumber": result[i].serialNumber,
-                                "groups": result[i].groups,
-                                "vin": result[i].vehicleIdentificationNumber,
-                                "messagestatus": [],
-                                "currentstatus": "",
-                                "hitMax": false
-                            };
-                        }
-                        deviceJSON.push(currentDevice);
-                    }
-                    autocomplete(document.getElementById("myInput"), vehicleInputButton, deviceJSON);
-                    SortbyButton.click();
-                    //deviceJSON = sortArr(deviceJSON, "vin");
-                    //console.log(deviceJSON);
-
-                },
-                function(e) {
-                    console.error("Failed:", e);
-                });
 
             // Autocomplete Vehicle Search
             //console.log(deviceNameArr);
@@ -1294,26 +1247,11 @@ geotab.addin.output = function() {
 
             api = freshApi;
             state = freshState;
+            var groupList = state.getGroupFilter();
+            //console.log(groupList);
+            periodPicker_today.click();
+            InatializeCustomDateSelector();
 
-
-            // example of setting url state
-            // freshState.setState({
-            //     hello: 'world'
-            // });
-
-            // getting the current user info
-            freshApi.getSession(session => {
-                //elAddin.querySelector('#output-user').textContent = session.userName;
-                //  console.log(session);
-                // Get Timezone Info
-                api.call("Get", { "typeName": "User", "search": { "name": session.userName } }, function(result) {
-                    timeZone = result[0].timeZoneId;
-                });
-
-            });
-
-            var groupList = state.getGroupFilter()
-            console.log(groupList);
             // Get Groups
             groupAPIcall(api);
 
@@ -1357,9 +1295,21 @@ geotab.addin.output = function() {
                     console.error("Failed:", e);
                 });
 
+            // example of setting url state
+            freshState.setState({
+                groups: state.getGroupFilter().map(x => x.id)
+            });
 
+            // getting the current user info
+            freshApi.getSession(session => {
+                //elAddin.querySelector('#output-user').textContent = session.userName;
+                //  console.log(session);
+                // Get Timezone Info
+                api.call("Get", { "typeName": "User", "search": { "name": session.userName } }, function(result) {
+                    timeZone = result[0].timeZoneId;
+                });
 
-
+            });
             // show main content
             elAddin.className = '';
         },
