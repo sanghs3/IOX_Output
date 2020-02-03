@@ -1222,6 +1222,7 @@ geotab.addin.output = function() {
             api = freshApi;
             state = freshState;
             var result = state.getGroupFilter()
+            var groupList = result.map(x => x.id);
             console.log(result);
             periodPicker_today.click();
             InatializeCustomDateSelector();
@@ -1229,7 +1230,7 @@ geotab.addin.output = function() {
             // Get Groups
             groupAPIcall(api);
 
-            api.call("Get", { "typeName": "Device", "search": { "fromDate": new Date().toISOString() } },
+            api.call("Get", { "typeName": "Device", "search": { "fromDate": new Date().toISOString(), "groups": groupList } },
                 function(result) {
                     var currentDevice = {};
                     var callsArray = [];
