@@ -1211,7 +1211,7 @@ geotab.addin.output = function() {
 
     function changeGroupState(api, state) {
         var groupList = state.getGroupFilter();
-
+        console.log(groupList)
         deviceJSON = [];
         api.call("Get", { "typeName": "Device", "search": { "fromDate": new Date().toISOString(), "groups": groupList } },
             function(result) {
