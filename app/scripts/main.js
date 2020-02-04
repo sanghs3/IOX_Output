@@ -1596,6 +1596,8 @@ geotab.addin.output = function() {
             freshState.setState({
                 groups: state.getGroupFilter().map(x => x.id)
             });
+            changeGroupState(api, state);
+
 
             // getting the current user info
             freshApi.getSession(session => {
