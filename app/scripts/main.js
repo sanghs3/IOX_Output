@@ -1212,7 +1212,6 @@ geotab.addin.output = function() {
     function changeGroupState(api, state) {
         var groupList = state.getGroupFilter();
 
-        // Get Groups
         deviceJSON = [];
         api.call("Get", { "typeName": "Device", "search": { "fromDate": new Date().toISOString(), "groups": groupList } },
             function(result) {
@@ -1592,9 +1591,9 @@ geotab.addin.output = function() {
 
 
             // example of setting url state
-            freshState.setState({
-                groups: state.getGroupFilter().map(x => x.id)
-            });
+            // freshState.setState({
+            //     groups: state.getGroupFilter().map(x => x.id)
+            // });
             changeGroupState(api, state);
 
 
