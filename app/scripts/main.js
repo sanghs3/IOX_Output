@@ -38,16 +38,32 @@ geotab.addin.output = function() {
         EndDate = document.getElementById("EndDate"),
 
         resetButton = document.getElementById('vehicleResetSelect'),
-        inp = document.getElementById("myInput");
+        inp = document.getElementById("vehicleSearchInput");
+
+    var changeGroup = document.getElementById("changeGroup");
+    var ChangeGroupALL = document.getElementById("ChangeGroupALL");
+
+
+    ChangeGroupALL.addEventListener("click", function() {
+        groupList = [{ "id": "GroupCompanyId" }];
+        console.log("Change Group to ALL");
+        changeGroupState(api, state);
+    })
+
+    changeGroup.addEventListener("click", function() {
+        groupList = [{ "id": "b2B66" }];
+        console.log("Change Group to b2B66");
+        changeGroupState(api, state);
+    })
 
 
     var groupJson = {},
         activeId = [],
         deviceJSON = [],
-        currentResp = 0,
         timeZone,
         ApiCount = 0,
-        activeArr = [];
+        activeArr = [],
+        groupList = [];
 
 
     // Event Listeners
@@ -1210,7 +1226,8 @@ geotab.addin.output = function() {
     }
 
     function changeGroupState(api, state) {
-        var groupList = state.getGroupFilter();
+        //groupList = state.getGroupFilter();
+        //groupList = [{ id: "b2B66" }];
         console.log(groupList)
         deviceJSON = [];
         api.call("Get", { "typeName": "Device", "search": { "fromDate": new Date().toISOString(), "groups": groupList } },
@@ -1255,23 +1272,25 @@ geotab.addin.output = function() {
 
         function toggleDropdown() {
             currentFocus = -1;
-            var state = document.getElementById("vehicleInputButton").value;
-            if (state == 1) {
+            var vehicleInputButtonstate = document.getElementById("vehicleInputButton").value;
+            if (vehicleInputButtonstate == 1) {
                 document.getElementById("vehicleInputButtonClose").setAttribute("style", "display: inline-flex;");
                 document.getElementById("vehicleInputButtonOpen").setAttribute("style", "display: none;");
                 document.getElementById("vehicleInputButton").value = 0;
                 document.getElementById("autocompleteDropDown").setAttribute("style", "display:block; width: 215px;height: 135px;");
                 buildList("");
+                console.log("Open List");
             } else {
                 document.getElementById("vehicleInputButtonClose").setAttribute("style", "display: none;");
                 document.getElementById("vehicleInputButtonOpen").setAttribute("style", "display: inline-flex;");
                 document.getElementById("vehicleInputButton").value = 1;
                 document.getElementById("autocompleteDropDown").setAttribute("style", "display:none;");
                 closeAllLists();
+                console.log("Close List");
             }
         }
         vehicleInputButton.addEventListener("click", function(e) {
-            inp.click();
+            toggleDropdown();
         });
 
         resetButton.addEventListener("click", function(e) {
@@ -1286,19 +1305,19 @@ geotab.addin.output = function() {
         /*execute a function when someone writes in the text field:*/
         inp.addEventListener("input", function(e) {
             var val = inp.value;
-            var state = document.getElementById("vehicleInputButton").value;
+            var vehicleInputButtonstate = vehicleInputButton.value;
 
             /*close any already open lists of autocompleted values*/
             closeAllLists();
             // Change Vehicle Input Button
-            if (val.length > 0 && state == 1) {
+            if (val.length > 0 && vehicleInputButtonstate == 1) {
                 document.getElementById("vehicleInputButtonClose").setAttribute("style", "display: inline-flex;");
                 document.getElementById("vehicleInputButtonOpen").setAttribute("style", "display: none;");
-                state = 0;
-            } else if (val.length == 0 && state == 0) {
+                vehicleInputButtonstate = 0;
+            } else if (val.length == 0 && vehicleInputButtonstate == 0) {
                 document.getElementById("vehicleInputButtonClose").setAttribute("style", "display: none;");
                 document.getElementById("vehicleInputButtonOpen").setAttribute("style", "display: inline-flex;");
-                state = 1;
+                vehicleInputButtonstate = 1;
             }
 
 
@@ -1308,6 +1327,7 @@ geotab.addin.output = function() {
         });
 
         inp.addEventListener("click", function(e) {
+            console.log("Click Input");
             toggleDropdown();
         });
         /*execute a function presses a key on the keyboard:*/
@@ -1405,6 +1425,7 @@ geotab.addin.output = function() {
             if (activeArr.length == deviceJSON.length) {
                 toggleSelectAll("all");
             }
+            //console.log(deviceJSON);
 
             for (i = 0; i < deviceJSON.length; i++) {
                 /*check if the item starts with the same letters as the text field value:*/
@@ -1594,6 +1615,7 @@ geotab.addin.output = function() {
             // freshState.setState({
             //     groups: state.getGroupFilter().map(x => x.id)
             // });
+            groupAPIcall(api);
             changeGroupState(api, state);
 
 
