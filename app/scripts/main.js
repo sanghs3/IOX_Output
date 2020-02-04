@@ -1229,7 +1229,7 @@ geotab.addin.output = function() {
 
     function changeGroupState(api, state) {
         groupList = state.getGroupFilter();
-        console.log(groupList)
+        //console.log(groupList)
         deviceJSON = [];
         api.call("Get", { "typeName": "Device", "search": { "fromDate": new Date().toISOString(), "groups": groupList } },
             function(result) {
@@ -1262,7 +1262,7 @@ geotab.addin.output = function() {
                     deviceJSON.push(currentDevice);
                 }
                 SortbyButton.click();
-                console.log(deviceJSON);
+                //  console.log(deviceJSON);
             },
             function(e) {
                 console.error("Failed:", e);
