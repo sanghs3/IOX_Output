@@ -54,8 +54,8 @@ geotab.addin.output = function() {
 
     optionsButton.addEventListener("click", function() {
         if (fullPopUp.style.display == "block") {
-            vehicleInputButton.getElementsByClassName("vehicleInputButtonClose").vehicleInputButtonClose.setAttribute("style", "display: none;");
-            vehicleInputButton.getElementsByClassName("vehicleInputButtonOpen").vehicleInputButtonOpen.setAttribute("style", "display: inline-flex;");
+            document.getElementById("vehicleInputButtonClose").setAttribute("style", "display: none;");
+            document.getElementById("vehicleInputButtonOpen").setAttribute("style", "display: inline-flex;");
             document.getElementById("vehicleInputButton").value = 1;
             closeAllLists();
             fullPopUp.setAttribute('style', 'display: none;');
@@ -1213,8 +1213,7 @@ geotab.addin.output = function() {
         var groupList = state.getGroupFilter();
 
         // Get Groups
-        groupAPIcall(api);
-
+        deviceJSON = [];
         api.call("Get", { "typeName": "Device", "search": { "fromDate": new Date().toISOString(), "groups": groupList } },
             function(result) {
                 var currentDevice = {};
@@ -1246,8 +1245,7 @@ geotab.addin.output = function() {
                     deviceJSON.push(currentDevice);
                 }
                 SortbyButton.click();
-                //deviceJSON = sortArr(deviceJSON, "vin");
-                //console.log(deviceJSON);
+                console.log(deviceJSON);
 
             },
             function(e) {
@@ -1311,9 +1309,9 @@ geotab.addin.output = function() {
         });
 
         inp.addEventListener("click", function(e) {
-                toggleDropdown();
-            })
-            /*execute a function presses a key on the keyboard:*/
+            toggleDropdown();
+        });
+        /*execute a function presses a key on the keyboard:*/
         inp.addEventListener("keydown", function(e) {
             //console.log(currentFocus);
             var x = document.getElementById("autocomplete-list");
@@ -1563,9 +1561,10 @@ geotab.addin.output = function() {
 
             api = freshApi;
             state = freshState;
+            groupAPIcall(api);
             periodPicker_today.click();
             InatializeCustomDateSelector();
-            changeGroupState(api, state);
+            //changeGroupState(api, state);
             // Autocomplete Vehicle Search
             //console.log(deviceNameArr);
 
