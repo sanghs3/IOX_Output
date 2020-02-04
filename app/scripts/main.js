@@ -63,6 +63,7 @@ geotab.addin.output = function() {
         deviceJSON = [],
         timeZone,
         ApiCount = 0,
+        currentResp = 0,
         activeArr = [],
         groupList = [];
 
