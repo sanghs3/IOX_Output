@@ -10,7 +10,7 @@ function autocomplete(inp, vehicleInputButton, deviceJSON) {
             document.getElementById("vehicleInputButtonClose").setAttribute("style", "display: inline-flex;");
             document.getElementById("vehicleInputButtonOpen").setAttribute("style", "display: none;");
             document.getElementById("vehicleInputButton").value = 0;
-            document.getElementById("autocompleteDropDown").setAttribute("style", "display:block; width: 215px;height: 135px;");
+            document.getElementById("autocompleteDropDown").setAttribute("style", "display:block; width: 90%;height: 135px;");
             buildList("");
         } else {
             document.getElementById("vehicleInputButtonClose").setAttribute("style", "display: none;");
