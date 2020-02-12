@@ -12,30 +12,6 @@ i {
     -webkit-transform: rotate(45deg);
 }
 
-.geotabButton {
-    color: #444444;
-}
-
-.geotabButton.leftGeotabIcon.geotabButtonIcons {
-    float: left;
-    left: 0.7em;
-    top: 50%;
-    margin-top: -5.5px;
-}
-
-.geotabButton .geotabButtonIcons {
-    padding-right: 0;
-}
-
-.svgIcon {
-    width: 11px;
-    height: 11px;
-}
-
-.geotabSwitchButton {
-    float: right;
-}
-
 .autocomplete {
     /*the container must be positioned relative:*/
     position: relative;
