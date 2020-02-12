@@ -406,11 +406,6 @@ geotab.addin.output = function() {
     applyChanges.addEventListener("click", function() {
         fullPopUp.setAttribute('style', 'display: none');
         submitFourm();
-        // State
-        var states = document.getElementById("State").childNodes;
-        for (var i = 0; i < states.length; i++) {
-            //console.log(i);
-        }
     });
 
 
@@ -464,7 +459,7 @@ geotab.addin.output = function() {
             endDateTime = new Date(endDateTime);
             endDateTime = endDateTime.toISOString();
         }
-        //console.log(startDateTime, endDateTime)
+        console.log(startDateTime, endDateTime)
         sortNum(activeId);
         if (sortdirection == 0) { // Reverse
             activeId.reverse();
@@ -583,7 +578,7 @@ geotab.addin.output = function() {
         var version = "0000000000000000";
         var apiParameters = {
             "typeName": "TextMessage",
-            "fromVersion": version,
+            //"fromVersion": version, //Removed Version due to priority 
             "search": {
                 "fromDate": startDate,
                 "toDate": EndDate
@@ -594,7 +589,7 @@ geotab.addin.output = function() {
             deviceJSON[i].currentstatus = "";
         }
         api.call("GetFeed", apiParameters, function(result) {
-            for (var counter = result.data.length - 1; counter > 0; counter--) {
+            for (var counter = result.data.length - 1; counter >= 0; counter--) {
                 var CurrentActiveIndex = deviceJSON.map(function(x) { return x.id; }).indexOf(result.data[counter].device.id);
                 //console.log(CurrentActiveIndex, result.data[counter].id)
                 if (deviceJSON[CurrentActiveIndex].messagestatus.length < 15) {
