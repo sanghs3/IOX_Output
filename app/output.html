@@ -68,14 +68,14 @@
                 </path>
               </svg>
             </svg>&nbsp;Sort by: <span id="SortbyType">Name</span></button>
-                <button class="geotabButton geotabButton-empty sort-constructor_arrow-button popupWindowTrigger" id="SortbyTypeDropDownButton" title="Sort by">
-            <svg class="svgIcon geotabButtonIcons">
+                <button class="geotabButton geotabButton-empty" id="SortbyTypeDropDownButton" title="Sort by">
+            <svg id="sortbyArrowSVG" class="svgIcon geotabButtonIcons">
               <svg viewBox="0 0 32 32" id="geo-arrow-down">
-                <path
+                <path id="sortbyArrowPath"
                   d="M30.212 10.44q0 .688-.492 1.229L17.423 23.966q-.542.541-1.23.541-.689 0-1.23-.54L2.666 11.668q-.541-.541-.541-1.23 0-.688.54-1.23.542-.54 1.23-.54H28.49q.689 0 1.23.54.54.542.492 1.23z">
                 </path>
               </svg>
-            </svg>
+            </svg> 
           </button>
                 </span>
                 <button class="geotabButton" id="refreshList" title="refresh"> Refresh
@@ -88,7 +88,7 @@
                 </button>
             </div>
             <br><br><br>
-            <div class="popup verticalButtonSet popupWindow scrollHost touchScrollClass hardwareAccelerationClass" style="display: none; left: 100px;" role="menu" id="SortbyTypeDropDown">
+            <div class="sortbyDropdown popup verticalButtonSet popupWindow scrollHost touchScrollClass hardwareAccelerationClass" style="display: none;" role="menu" id="SortbyTypeDropDown">
                 <input type="checkbox" class="geotabSwitchButton" data-type="4" id="sortby_Name" checked>
                 <label title="Sort by Name" class="geotabButton ellipsis" style="display: block;" id="sortbyName" for="sortby_Name">Name</label>
                 <input type="checkbox" class="geotabSwitchButton" data-type="4" id="sortby_VIN">
@@ -100,9 +100,9 @@
             </div>
 
             <div class="optionsDropDown optionsPopupMenu popupWindow" id="fullPopUp" style="display: none;">
-                <div class="geotabOptionsMenu geotabAnimationAccordion defaultAccordionStyle" style="width: 900px;">
+                <div class="geotabOptionsMenuCustom geotabOptionsMenu geotabAnimationAccordion defaultAccordionStyle" id="fullPopUpsubDIV">
                     <h3 class="vanillaAccordionHeader"></h3>
-                    <div class="leftBetterMenu leftOptionsMenuSection vanillaAccordionSubMenu">
+                    <div class="leftBetterMenu leftOptionsMenuSection vanillaAccordionSubMenu" id="leftSideMenu">
                         <div class="leftBetterMenu1 timePeriodsList">
                             <fieldset class="leftBetterMenu2 periodPicker_period">
                                 <legend class="leftBetterMenu3 periodPicker_periodLegend">Date Period</legend>
@@ -122,7 +122,7 @@
                                     <input class="geotabSwitchButton" type="radio" id="periodPicker_custom" value="custom" name="period">
                                     <label class="geotabButton" for="periodPicker_custom">Custom</label>
                                 </div>
-                                <div id="custom-date" style="display: none;">
+                                <div id="custom-date" class="customDateOFF">
                                     <input class="dateRange_start dateRangeInput checkmateFormEditField hasDatePicker" title="Start date" placeholder="Start date" type="datetime-local" autocomplete="nope" id="customStartDate">
                                     <span class="dateRange_separator">to</span>
                                     <input class="dateRange_end dateRangeInput checkmateFormEditField hasDatePicker" title="End date" placeholder="End date" type="datetime-local" autocomplete="nope" id="customEndDate">
@@ -131,7 +131,7 @@
                             <div></div>
                         </div>
                     </div>
-                    <div class="rightBetterMenu2 geotabOptionsMenuFieldset vanillaAccordionSubMenu" style="overflow:overlay;">
+                    <div class="rightBetterMenu2 geotabOptionsMenuFieldset vanillaAccordionSubMenu" id="rightSideMenu">
                         <fieldset class="rightBetterMenu2 geotabOptionsMenuFieldset">
                             <legend class="rightBetterMenu3 rightOptionsMenuLabel">Display Options</legend>
                             <div class="geotabOptionsMenuElements">
@@ -167,21 +167,24 @@
 
                                 </li>
                                 <li class="rightBetterMenu5 geotabOptionsMenuElement sm-part-12">
-                                    <p class="filterSelectionInformation" id="ResetDevices">Selected: <span class="optionsMenu_filterSelectedItems"></span></p>
-                                    <button id="vehicleResetSelect" class="optionsMenu_AutocompleteButton geotabButton">Reset
-                selection</button>
+                                    <label class="geotabOptionsMenuElementLabel md-part-5 sm-part-12" id="ResetDevices">Selected: <span class="optionsMenu_filterSelectedItems"></span></label>
+                                    <div class="SingleSelectButton geotabOptionsMenuElementValue md-part-7 sm-part-12" id="resetButton">
+                                        <button id="vehicleResetSelect" class="SingleSelectButton optionsMenu_AutocompleteButton geotabButton">Reset
+                                      selection</button>
+                                    </div>
                                 </li>
+
 
                                 <li class="geotabOptionsMenuElement sm-part-12">
                                     <label class="geotabOptionsMenuElementLabel md-part-5 sm-part-12">State</label>
                                     <div class="geotabOptionsMenuElementValue md-part-7 sm-part-12" id="State">
-                                        <span class="horizontalButtonSet" style="float: right;width: 100%;">
+                                        <span class="ThreeSelectButton horizontalButtonSet">
                       <input type="radio" id="stateCurrentON" class="geotabSwitchButton" name="IoxStatus">
-                      <label class="geotabButton onLabelSwitcher noTranslate" for="stateCurrentON" style="width: 33%;">On</label>
+                      <label class="ThreeSelectSingleButton geotabButton onLabelSwitcher noTranslate" for="stateCurrentON">On</label>
                       <input type="radio" id="stateCurrentAll" class="geotabSwitchButton" name="IoxStatus" checked>
-                      <label class="geotabButton offLabelSwitcher noTranslate" for="stateCurrentAll" style="width: 34%;">All</label>
+                      <label class="ThreeSelectSingleButton geotabButton offLabelSwitcher noTranslate" for="stateCurrentAll">All</label>
                       <input type="radio" id="stateCurrentOFF" class="geotabSwitchButton" name="IoxStatus">
-                      <label class="geotabButton offLabelSwitcher noTranslate" for="stateCurrentOFF" style="width: 33%;">Off</label>
+                      <label class="ThreeSelectSingleButton geotabButton offLabelSwitcher noTranslate" for="stateCurrentOFF">Off</label>
                     </span>
                                     </div>
 
@@ -192,22 +195,22 @@
                                 <li class="rightBetterMenu5 geotabOptionsMenuElement sm-part-12">
                                     <label class="geotabOptionsMenuElementLabel md-part-5 sm-part-12">Message Status</label>
                                     <div class="geotabOptionsMenuElementValue md-part-7 sm-part-12" id="Message_Status">
-                                        <span class="horizontalButtonSet" style="float: right;width: 100%;">
+                                        <span class="ThreeSelectButton horizontalButtonSet">
                       <input type="radio" id="messageStatusSent" class="geotabSwitchButton" name="messageStatus">
-                      <label class="geotabButton onLabelSwitcher noTranslate" for="messageStatusSent" style="width: 33%;">Sent</label>
+                      <label class="ThreeSelectSingleButton geotabButton onLabelSwitcher noTranslate" for="messageStatusSent">Sent</label>
                       <input type="radio" id="messageStatusAll" class="geotabSwitchButton" name="messageStatus" checked>
-                      <label class="geotabButton offLabelSwitcher noTranslate" for="messageStatusAll" style="width: 34%;">All</label>
+                      <label class="ThreeSelectSingleButton geotabButton offLabelSwitcher noTranslate" for="messageStatusAll">All</label>
                       <input type="radio" id="messageStatusDelivered" class="geotabSwitchButton" name="messageStatus">
-                      <label class="geotabButton offLabelSwitcher noTranslate"
-                        for="messageStatusDelivered" style="width: 33%;">Delivered</label>
+                      <label class="ThreeSelectSingleButton geotabButton offLabelSwitcher noTranslate"
+                        for="messageStatusDelivered">Delivered</label>
                     </span>
                                     </div>
                                 </li>
 
 
                                 </ul>
-                                <div id="startDate" style="display: none;"></div>
-                                <div id="EndDate" style="display: none;"></div>
+                                <div id="startDate" class="customDateOFF"></div>
+                                <div id="EndDate" class="customDateOFF"></div>
                         </fieldset>
                         </div>
                         <hr class="bottomBetterMenu geotabOptionsMenuButtonSeperator">
@@ -229,24 +232,24 @@
                         <table class="grid__content">
                             <thead>
                                 <tr class="grid__header ">
-                                    <th class="grid__header-cell ellipsis engineHours-visibility" style="max-width: 160px; min-width: 160px; display: table-cell;">
+                                    <th class="tableColumnCSS grid__header-cell ellipsis engineHours-visibility">
                                         <span>Name</span>
                                     </th>
-                                    <th class="grid__header-cell ellipsis engineHours-visibility" style="max-width: 160px; min-width: 160px; display: table-cell;">
+                                    <th class="tableColumnCSS grid__header-cell ellipsis engineHours-visibility">
                                         <svg class="svgIcon" focusable="false"><svg viewBox="0 0 32 32" id="geo-serial"><path d="M30.507 25.74H0V6h32v20h-1.493zm0-.779V6.779H28.8v17.922h1.707zm-5.974 0V6.779H23.04v17.922h1.493zm-2.986 0V6.779H19.84v17.922h1.707zm-3.414 0V6.779h-1.706v17.922h1.706zm-5.76 0V6.779h-1.706v17.922h1.706zm-3.413 0V6.779H7.467v17.922H8.96zm-2.987 0V6.779H4.267v17.922h1.706z"></path></svg></svg>
                                         <span>Serial number</span>
                                     </th>
-                                    <th class="grid__header-cell ellipsis serialNumber-visibility" style="max-width: 160px; min-width: 160px; display: table-cell;" data-property="serialNumber">
+                                    <th class="tableColumnCSS grid__header-cell ellipsis serialNumber-visibility" data-property="serialNumber">
                                         <svg class="svgIcon" focusable="false"><svg viewBox="0 0 32 32" id="geo-vin"><path d="M31.62 24.927l-3.238-3.072a9.956 9.956 0 01-2.856 2.71l3.237 3.074c.19.18.571.361.952.361.38 0 .762-.18 1.143-.542l.57-.542c.382-.362.382-.723.572-1.085 0-.18-.19-.542-.38-.904z"></path><path d="M27.314 15.6c-2.285-2.168-6.093-2.168-8.378 0a5.47 5.47 0 000 7.953c2.285 2.17 6.093 2.17 8.378 0a5.463 5.463 0 001.714-3.976 5.463 5.463 0 00-1.714-3.976z"></path><path d="M17.137 14.483v-4.338c0-.361.38-.723.761-.723h.381c.381 0 .762.362.762.723v2.892c.38-.18.952-.361 1.523-.542v-2.35c0-.361.38-.723.762-.723h.38c.381 0 .762.362.762.723v2.17c1.333 0 2.666.18 3.808.903V4.904c-.19-.543-.57-.904-1.142-.904H.952C.381 4 0 4.361 0 4.904v15.724c0 .542.38.904.952.904h14.852c-.952-2.169-.38-5.06 1.333-7.049zM5.712 15.929c0 .361-.38.723-.761.723H4.57c-.381 0-.762-.362-.762-.723v-5.784c0-.361.381-.723.762-.723h.38c.381 0 .762.362.762.723zm3.428 0c0 .361-.381.723-.762.723h-.38c-.572 0-.762-.362-.762-.723v-5.784c0-.361.19-.723.761-.723h.381c.38 0 .762.362.762.723zm3.237 0c0 .361-.381.723-.762.723h-.38c-.382 0-.763-.362-.763-.723v-5.784c0-.361.381-.723.762-.723h.38c.382 0 .763.362.763.723zm2.284.723c-.57 0-.761-.362-.761-.723v-5.784c0-.361.19-.723.761-.723h.381c.381 0 .762.362.762.723v5.784c0 .361-.38.723-.762.723z"></path></svg></svg>
                                         <span>VIN</span>
                                     </th>
-                                    <th class="grid__header-cell ellipsis vehicleIdentificationNumber-visibility" style="max-width: 100px; min-width: 100px; display: table-cell;" data-property="vehicleIdentificationNumber">
+                                    <th class="tableColumnCSS grid__header-cell ellipsis vehicleIdentificationNumber-visibility" data-property="vehicleIdentificationNumber">
                                         <span>Current Status</span>
                                     </th>
-                                    <th class="grid__header-cell ellipsis comment-visibility" style="max-width: 320px; min-width: 320px; display: table-cell;">
+                                    <th class="MessageStatusColumnCSS grid__header-cell ellipsis comment-visibility">
                                         <span>Message Status</span>
                                     </th>
-                                    <th class="grid__header-cell ellipsis comment-visibility" style="max-width: 160px; min-width: 160px; display: table-cell;">
+                                    <th class="tableColumnCSS grid__header-cell ellipsis comment-visibility">
                                         <span>Toggle Output</span>
                                     </th>
                                 </tr>
