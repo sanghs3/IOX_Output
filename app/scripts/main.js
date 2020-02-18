@@ -774,7 +774,6 @@ geotab.addin.output = function() {
 
         for (var i = 0; i < colmnTitles.length; i++) {
             var td = document.createElement("td");
-            td.setAttribute("class", "grid__cell grey ellipsis grid__cell__border");
             if (colmnTitles[i] == "Name") {
                 var div = document.createElement("div");
                 div.setAttribute("class", "first-row");
@@ -791,7 +790,7 @@ geotab.addin.output = function() {
                 a.append(secondaryText);
                 div.append(a);
                 td.append(div);
-                td.setAttribute("style", "max-width: 160px; min-width: 160px; display: table-cell;text-align: left;");
+                td.setAttribute("class", "tableColumnCSS150 textLeft grid__cell grey ellipsis grid__cell__border");
             } else {
                 var spanUpper = document.createElement("span");
                 spanUpper.setAttribute("class", "secondaryText");
@@ -800,7 +799,7 @@ geotab.addin.output = function() {
             }
             if (colmnTitles[i] == "Serial Number") {
                 spanInner.innerHTML = deviceJSON[CurrentActiveIndex].serialnumber;
-                td.setAttribute("style", "max-width: 160px; min-width: 160px; display: table-cell;text-align: center;");
+                td.setAttribute("class", "tableColumnCSS150 textCenter grid__cell grey ellipsis grid__cell__border");
             }
             if (colmnTitles[i] == "VIN") {
                 if (deviceJSON[CurrentActiveIndex].vin == "00000000") {
@@ -808,7 +807,7 @@ geotab.addin.output = function() {
                 } else {
                     spanInner.innerHTML = deviceJSON[CurrentActiveIndex].vin;
                 }
-                td.setAttribute("style", "max-width: 160px; min-width: 160px; display: table-cell;text-align: center;");
+                td.setAttribute("class", "tableColumnCSS150 textCenter grid__cell grey ellipsis grid__cell__border");
             }
             if (colmnTitles[i] == "Current Status") {
                 //console.log(typeof deviceJSON[CurrentActiveIndex].currentstatus === "boolean")
@@ -828,7 +827,7 @@ geotab.addin.output = function() {
                     spanInner.append(button);
                 }
                 //console.log(currentstatusSTR);
-                td.setAttribute("style", "max-width: 100px; min-width: 100px; display: table-cell;text-align: center;");
+                td.setAttribute("class", "tableColumnCSS100 textCenter grid__cell grey ellipsis grid__cell__border");
             }
             if (colmnTitles[i] == "Message Status") {
                 spanInner.setAttribute("id", "ms_" + deviceJSON[CurrentActiveIndex].id);
@@ -908,7 +907,7 @@ geotab.addin.output = function() {
                 } else {
                     spanInner.innerHTML = ""
                 }
-
+                td.setAttribute("class", "StatusColumnCSS300 textCenter grid__cell grey ellipsis grid__cell__border");
 
             }
             if (colmnTitles[i] != "Name") {
@@ -918,8 +917,7 @@ geotab.addin.output = function() {
             tr.append(td);
         }
         var td = document.createElement("td");
-        td.setAttribute("class", "grid__cell grey ellipsis grid__cell__border");
-        td.setAttribute("style", "max-width: 160px; min-width: 160px; display: table-cell;");
+        td.setAttribute("class", "StatusColumnCSS100 grid__cell grey ellipsis grid__cell__border");
         var span = document.createElement("span");
         span.setAttribute("id", "toggle_" + deviceJSON[CurrentActiveIndex].id);
         span.setAttribute("class", "horizontalButtonSet")
@@ -966,6 +964,7 @@ geotab.addin.output = function() {
         span.append(inputOFF);
         span.append(labelOFF);
         td.append(span);
+        td.setAttribute("class", "tableColumnCSS100 grid__cell grey ellipsis grid__cell__border");
         tr.append(td);
         deviceContentList.append(tr);
     }
