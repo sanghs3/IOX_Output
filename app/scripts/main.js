@@ -799,7 +799,7 @@ geotab.addin.output = function() {
             }
             if (colmnTitles[i] == "Serial Number") {
                 spanInner.innerHTML = deviceJSON[CurrentActiveIndex].serialnumber;
-                td.setAttribute("class", "tableColumnCSS150 textCenter grid__cell grey ellipsis grid__cell__border");
+                td.setAttribute("class", "tableColumnCSS100 textCenter grid__cell grey ellipsis grid__cell__border");
             }
             if (colmnTitles[i] == "VIN") {
                 if (deviceJSON[CurrentActiveIndex].vin == "00000000") {
