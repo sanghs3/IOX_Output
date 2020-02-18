@@ -112,6 +112,7 @@ geotab.addin.output = function() {
 
     SortbyTypeDropDownButton.addEventListener("click", function(e) {
         e.stopPropagation();
+        fullPopUp.setAttribute('style', 'display: none;');
         if (SortbyTypeDropDown.style.display == "inline") {
             SortbyTypeDropDown.setAttribute("style", "display: none;");
         } else {
