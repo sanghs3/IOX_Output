@@ -52,15 +52,15 @@
             </svg>
           </svg>
         </button>
-                <span class="sortControlContainer horizontalButtonSet toolbarSeparatedBlock extended" id="groupBy_DropdownId" style="display: block;">
+                <span class="horizontalButtonSet" id="groupBy_DropdownId">
           <button class="geotabButton" id="SortbyButton" title="Change sort direction">
-            <svg class="svgIcon leftGeotabIcon" style="display: inline;" id="SortbyButtonDown">
+            <svg class="svgIcon leftGeotabIcon" style="display: none;" id="SortbyButtonDown">
               <svg viewBox="0 0 32 32" id="geo-sort-alt-up">
                 <path
                   d="M12.835 25.72q0 .19-.19.41l-5.623 5.624q-.158.158-.41.158-.19 0-.38-.158L.577 26.099q-.253-.285-.126-.6.126-.348.537-.348h3.38V.888q0-.252.158-.41.158-.158.41-.158h3.381q.253 0 .41.158.159.158.159.41v24.263h3.38q.253 0 .41.158.159.158.159.41zm18.607 2.243v3.38q0 .253-.158.41-.158.159-.41.159h-14.66q-.252 0-.41-.158-.158-.158-.158-.411v-3.38q0-.253.158-.411.158-.158.41-.158h14.66q.252 0 .41.158.158.158.158.41zm-3.38-9.036v3.38q0 .253-.158.411-.158.158-.41.158h-11.28q-.252 0-.41-.158-.158-.158-.158-.41v-3.38q0-.253.158-.411.158-.158.41-.158h11.28q.252 0 .41.158.158.158.158.41zm-3.38-9.003v3.38q0 .221-.158.38-.158.157-.411.189h-7.898q-.253 0-.41-.19-.159-.19-.159-.379v-3.38q0-.253.158-.411.158-.158.41-.158h7.899q.253 0 .41.158.159.158.159.41zM21.302.888v3.38q0 .254-.159.411-.158.158-.41.158h-4.518q-.253 0-.41-.158-.159-.157-.159-.41V.889q0-.253.158-.411.158-.158.41-.158h4.519q.252 0 .41.158.158.158.158.41z">
                 </path>
               </svg>
-            </svg><svg class="svgIcon leftGeotabIcon" style="display: none;" id="SortbyButtonUP"
+            </svg><svg class="svgIcon leftGeotabIcon" style="display: inline;" id="SortbyButtonUP"
               title="Change sort direction">
               <svg viewBox="0 0 32 32" id="geo-sort-alt-down">
                 <path
@@ -69,9 +69,9 @@
               </svg>
             </svg>&nbsp;Sort by: <span id="SortbyType">Name</span></button>
                 <button class="geotabButton geotabButton-empty" id="SortbyTypeDropDownButton" title="Sort by">
-            <svg id="sortbyArrowSVG" class="svgIcon geotabButtonIcons">
+            <svg id="sortbyArrowSVG" class="disableClick svgIcon geotabButtonIcons">
               <svg viewBox="0 0 32 32" id="geo-arrow-down">
-                <path id="sortbyArrowPath"
+                <path id="sortbyArrowPath" class="disableClick"
                   d="M30.212 10.44q0 .688-.492 1.229L17.423 23.966q-.542.541-1.23.541-.689 0-1.23-.54L2.666 11.668q-.541-.541-.541-1.23 0-.688.54-1.23.542-.54 1.23-.54H28.49q.689 0 1.23.54.54.542.492 1.23z">
                 </path>
               </svg>

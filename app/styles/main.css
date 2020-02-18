@@ -123,14 +123,14 @@ a {
 }
 
 .tableColumnCSS {
-    max-width: 160px;
-    min-width: 160px;
+    max-width: 110px;
+    min-width: 110px;
     display: table-cell;
 }
 
 .MessageStatusColumnCSS {
-    max-width: 160px;
-    min-width: 160px;
+    max-width: 250px;
+    min-width: 250px;
     display: table-cell;
 }
 
@@ -138,6 +138,15 @@ a {
     display: inline;
     position: absolute;
     left: 100px;
+}
+
+.disableClick {
+    pointer-events: none;
+}
+
+.onOFFButton {
+    width: 35%;
+    text-align: center;
 }
 
 @media only screen and (max-width: 768px) {
