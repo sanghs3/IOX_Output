@@ -593,7 +593,7 @@ geotab.addin.output = function() {
             "typeName": "TextMessage",
             //"fromVersion": version, //Removed Version due to priority 
             "search": {
-                "groups": [{ "id": state.getGroupFilter() }]
+                "groups": state.getGroupFilter(),
                 "fromDate": startDate,
                 "toDate": EndDate
             }
