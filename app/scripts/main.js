@@ -1563,12 +1563,12 @@ geotab.addin.output = function() {
 
     /*execute a function when someone clicks in the document:*/
     document.addEventListener("click", function(e) {
-        console.log(e.target);
+        // console.log(e.target);
         //console.log(document.getElementById("autocomplete-list").contains(e.target),e.target);
         if (e.target.getAttribute("id") != "SortbyTypeDropDownButton" || e.target.getAttribute("id") != "sortbyArrowPath" || e.target.getAttribute("id") != "sortbyArrowSVG") {
-            console.log("Button Click");
+            //console.log("Button Click");
             if (document.getElementById("SortbyTypeDropDown").getAttribute("style").indexOf("inline") > 0) {
-                console.log("Clear()");
+                //console.log("Clear()");
                 SortbyTypeDropDownButton.click()
             }
             if (document.getElementById("autocomplete").contains(e.target) || document.getElementById("autocomplete-list").contains(e.target) || document.getElementById("closeAutocomplete").contains(e.target)) {} else {
