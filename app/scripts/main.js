@@ -1482,8 +1482,9 @@ geotab.addin.output = function() {
             toggleSelectAll("all");
         }
         var arrActive = document.getElementById("ResetDevices").getElementsByTagName("span")[0].innerHTML.split(",");
+        console.log()
         if (arrActive[0] == "All") {
-            toggleSelectAll("all");
+            selectAll();
         }
 
     }
