@@ -593,6 +593,7 @@ geotab.addin.output = function() {
             "typeName": "TextMessage",
             //"fromVersion": version, //Removed Version due to priority 
             "search": {
+                "groups": [{ "id": state.getGroupFilter() }]
                 "fromDate": startDate,
                 "toDate": EndDate
             }
@@ -605,6 +606,7 @@ geotab.addin.output = function() {
             for (var counter = result.data.length - 1; counter >= 0; counter--) {
                 var CurrentActiveIndex = deviceJSON.map(function(x) { return x.id; }).indexOf(result.data[counter].device.id);
                 //console.log(CurrentActiveIndex, result.data[counter].id)
+
                 if (deviceJSON[CurrentActiveIndex].messagestatus.length < 15) {
 
                     if (result.data[counter].hasOwnProperty("messageContent")) {
@@ -651,8 +653,9 @@ geotab.addin.output = function() {
             activeId = MessageStatusSort(OptionsMessageStatus, activeId);
             loopThruTable(activeId, "", "");
         }, function(error) {
-            console.error("Failed:", error);
+            //console.error("Failed:", error);
             console.log(deviceJSON);
+
         });
     }
 
