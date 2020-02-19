@@ -652,6 +652,7 @@ geotab.addin.output = function() {
             loopThruTable(activeId, "", "");
         }, function(error) {
             console.error("Failed:", error);
+            console.log(deviceJSON);
         });
     }
 
