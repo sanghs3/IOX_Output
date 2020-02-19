@@ -87,17 +87,14 @@ geotab.addin.output = function() {
     });
 
     SortbyButton.addEventListener("click", function() {
-        var sortType = document.getElementById("SortbyType").innerHTML;
-        sortType = sortType.toLowerCase();
-        sortType = sortType.replace(/\s/g, '');
         if (document.getElementById("SortbyButtonDown").style.display == "inline") {
             document.getElementById("SortbyButtonDown").setAttribute("style", "display: none;");
             document.getElementById("SortbyButtonUP").setAttribute("style", "display: inline;");
-            sortList(sortType, 0);
+            sortList(0);
         } else {
             document.getElementById("SortbyButtonDown").setAttribute("style", "display: inline;");
             document.getElementById("SortbyButtonUP").setAttribute("style", "display: none;");
-            sortList(sortType, 1);
+            sortList(1);
         }
     });
 
@@ -229,7 +226,10 @@ geotab.addin.output = function() {
         return activeId;
     }
 
-    function sortList(sortType, sortdirection) {
+    function sortList(sortdirection) {
+        var sortType = document.getElementById("SortbyType").innerHTML;
+        sortType = sortType.toLowerCase();
+        sortType = sortType.replace(/\s/g, '');
         // Sort
         deviceJSON = sortArr(deviceJSON, sortType);
         activeId = getActiveId();
@@ -472,7 +472,7 @@ geotab.addin.output = function() {
             endDateTime = new Date(endDateTime);
             endDateTime = endDateTime.toISOString();
         }
-        console.log(startDateTime, endDateTime)
+        //console.log(startDateTime, endDateTime)
         sortNum(activeId);
         if (sortdirection == 0) { // Reverse
             activeId.reverse();
@@ -1269,7 +1269,11 @@ geotab.addin.output = function() {
                     }
                     deviceJSON.push(currentDevice);
                 }
-                SortbyButton.click();
+                if (document.getElementById("SortbyButtonDown").style.display == "inline") {
+                    sortList(0);
+                } else {
+                    sortList(1);
+                }
                 //  console.log(deviceJSON);
             },
             function(e) {
