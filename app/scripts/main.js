@@ -1270,10 +1270,6 @@ geotab.addin.output = function() {
                     deviceJSON.push(currentDevice);
                 }
                 SortbyButton.click();
-                var arrActive = document.getElementById("ResetDevices").getElementsByTagName("span")[0].innerHTML.split(",");
-                if (arrActive[0] == "All") {
-                    toggleSelectAll();
-                }
                 //  console.log(deviceJSON);
             },
             function(e) {
@@ -1434,9 +1430,6 @@ geotab.addin.output = function() {
         li.setAttribute("class", "separator");
         a.append(li);
 
-        if (activeArr.length == deviceJSON.length) {
-            toggleSelectAll("all");
-        }
         //console.log(deviceJSON);
 
         for (i = 0; i < deviceJSON.length; i++) {
@@ -1484,6 +1477,13 @@ geotab.addin.output = function() {
                 li.append(b);
                 a.appendChild(li);
             }
+        }
+        if (activeArr.length == deviceJSON.length) {
+            toggleSelectAll("all");
+        }
+        var arrActive = document.getElementById("ResetDevices").getElementsByTagName("span")[0].innerHTML.split(",");
+        if (arrActive[0] == "All") {
+            toggleSelectAll("all");
         }
 
     }
