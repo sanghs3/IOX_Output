@@ -1270,6 +1270,10 @@ geotab.addin.output = function() {
                     deviceJSON.push(currentDevice);
                 }
                 SortbyButton.click();
+                var arrActive = document.getElementById("ResetDevices").getElementsByTagName("span")[0].innerHTML.split(",");
+                if (arrActive[0] == "All") {
+                    toggleSelectAll();
+                }
                 //  console.log(deviceJSON);
             },
             function(e) {
