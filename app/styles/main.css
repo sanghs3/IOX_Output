@@ -165,4 +165,7 @@ a {
         overflow: visible;
         display: contents;
     }
+    .optionsDropDown {
+        width: 80%;
+    }
 }
