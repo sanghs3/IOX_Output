@@ -145,6 +145,11 @@ a {
     display: block;
 }
 
+.checkmateToolbar,
+.geotabToolbar {
+    width: 350px;
+}
+
 #fullPopUpsubDIV.geotabOptionsMenuCustom {
     width: 650px;
     min-width: 650px;
@@ -170,6 +175,6 @@ a {
         display: contents;
     }
     .optionsDropDown {
-        width: 80%;
+        width: 325px;
     }
 }
