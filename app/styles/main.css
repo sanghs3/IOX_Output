@@ -141,6 +141,10 @@ a {
     text-align: center;
 }
 
+.grid {
+    display: block;
+}
+
 #fullPopUpsubDIV.geotabOptionsMenuCustom {
     width: 650px;
     min-width: 650px;
