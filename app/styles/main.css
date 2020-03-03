@@ -154,8 +154,8 @@ a {
 
 @media only screen and (max-width: 767px) {
     #fullPopUpsubDIV.geotabOptionsMenuCustom {
-        min-width: 325px;
-        width: 325px;
+        min-width: 300px;
+        width: 300px;
     }
     #rightSideMenu.rightBetterMenu2 {
         overflow: visible;
