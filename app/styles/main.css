@@ -88,11 +88,6 @@ a {
     width: 33%;
 }
 
-#fullPopUpsubDIV.geotabOptionsMenuCustom {
-    width: 650px;
-    min-width: 650px;
-}
-
 #rightSideMenu.rightBetterMenu2 {
     overflow: overlay;
 }
@@ -144,6 +139,17 @@ a {
 .onOFFButton {
     width: 35%;
     text-align: center;
+}
+
+#fullPopUpsubDIV.geotabOptionsMenuCustom {
+    width: 650px;
+    min-width: 650px;
+    position: relative;
+    overflow: hidden;
+    padding: 0 0 0 0;
+    background: #fefefe;
+    list-style-type: none;
+    height: auto;
 }
 
 @media only screen and (max-width: 767px) {
