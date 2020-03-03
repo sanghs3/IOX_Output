@@ -148,6 +148,7 @@ a {
 .checkmateToolbar,
 .geotabToolbar {
     width: 350px;
+    overflow: hidden;
 }
 
 #fullPopUpsubDIV.geotabOptionsMenuCustom {
