@@ -1,8 +1,8 @@
-.hidden {
+#output .hidden {
     display: none;
 }
 
-i {
+#output i {
     display: inline-block;
     padding: 3px;
 }
@@ -47,7 +47,7 @@ i {
     background-color: #2c7ab1 !important;
 }
 
-.secondaryText {
+#output .secondaryText {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -56,7 +56,7 @@ i {
     fill: #757575;
 }
 
-.mainText {
+#output .mainText {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -67,7 +67,7 @@ i {
     fill: #25477b;
 }
 
-a {
+#output a {
     text-decoration: none;
 }
 
@@ -141,12 +141,12 @@ a {
     text-align: center;
 }
 
-.grid {
+#output .grid {
     display: block;
 }
 
-.checkmateToolbar,
-.geotabToolbar {
+#output .checkmateToolbar,
+#output .geotabToolbar {
     width: 350px;
     overflow: hidden;
 }
@@ -175,7 +175,7 @@ a {
         overflow: visible;
         display: contents;
     }
-    .optionsDropDown {
+    #output .optionsDropDown {
         width: 325px;
     }
 }
