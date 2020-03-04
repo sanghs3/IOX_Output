@@ -804,7 +804,7 @@ geotab.addin.output = function() {
             }
             if (colmnTitles[i] == "Serial Number") {
                 spanInner.innerHTML = deviceJSON[CurrentActiveIndex].serialnumber;
-                td.setAttribute("class", "tableColumnCSS100 textCenter grid__cell grey ellipsis grid__cell__border");
+                td.setAttribute("class", "tableColumnCSS120 textCenter grid__cell grey ellipsis grid__cell__border");
             }
             if (colmnTitles[i] == "VIN") {
                 if (deviceJSON[CurrentActiveIndex].vin == "00000000") {
@@ -832,7 +832,7 @@ geotab.addin.output = function() {
                     spanInner.append(button);
                 }
                 //console.log(currentstatusSTR);
-                td.setAttribute("class", "tableColumnCSS100 textCenter grid__cell grey ellipsis grid__cell__border");
+                td.setAttribute("class", "tableColumnCSS120 textCenter grid__cell grey ellipsis grid__cell__border");
             }
             if (colmnTitles[i] == "Message Status") {
                 spanInner.setAttribute("id", "ms_" + deviceJSON[CurrentActiveIndex].id);
@@ -969,7 +969,7 @@ geotab.addin.output = function() {
         span.append(inputOFF);
         span.append(labelOFF);
         td.append(span);
-        td.setAttribute("class", "tableColumnCSS100 grid__cell grey ellipsis grid__cell__border");
+        td.setAttribute("class", "tableColumnCSS120 grid__cell grey ellipsis grid__cell__border");
         tr.append(td);
         deviceContentList.append(tr);
     }
