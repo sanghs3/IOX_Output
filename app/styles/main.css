@@ -108,9 +108,9 @@ a {
     text-align: left;
 }
 
-.tableColumnCSS100 {
-    max-width: 100px;
-    min-width: 100px;
+.tableColumnCSS120 {
+    max-width: 120px;
+    min-width: 120px;
     display: table-cell;
 }
 
