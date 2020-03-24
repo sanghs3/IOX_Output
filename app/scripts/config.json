@@ -1,0 +1,14 @@
+{
+    "name": "IOX-Output",
+    "supportEmail": "shansangha@geotab.com",
+    "version": "0.0.1",
+    "items": [{
+        "url": "https://support6.geotab.com/AddIns/iox_output_v0/app/output.html",
+        "path": "DataEngineLink",
+        "menuName": {
+            "en": "IOX-Output"
+        },
+        "icon": "images/icon.jpg"
+    }],
+    "isSigned": false
+}

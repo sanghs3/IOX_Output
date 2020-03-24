@@ -135,11 +135,12 @@
                         <fieldset class="rightBetterMenu2 geotabOptionsMenuFieldset">
                             <legend class="rightBetterMenu3 rightOptionsMenuLabel">Display Options</legend>
                             <div class="geotabOptionsMenuElements">
-                                <li class="rightBetterMenu5 geotabOptionsMenuElement sm-part-12">
-                                    <label class="geotabOptionsMenuElementLabel md-part-5 sm-part-12">Vehicles</label>
+                                <ul>
+                                    <li class="rightBetterMenu5 geotabOptionsMenuElement sm-part-12">
+                                        <label class="geotabOptionsMenuElementLabel md-part-5 sm-part-12">Vehicles</label>
 
-                                    <div class="geotabOptionsMenuElementValue md-part-7 sm-part-12">
-                                        <span id="devices" class="optionsMenu_filterContainer full-size org-filter">
+                                        <div class="geotabOptionsMenuElementValue md-part-7 sm-part-12">
+                                            <span id="devices" class="optionsMenu_filterContainer full-size org-filter">
                       <div class="autocomplete" id="autocomplete" style="float: right;width: 250px;">
                         <input class="inputBox checkmateFormEditField" type="text" id="vehicleSearchInput" style="width: 90%;"
                           placeholder="Name, VIN, or serial number">
@@ -163,22 +164,22 @@
                         </div>
                       </div>
                     </span>
-                                    </div>
+                                        </div>
 
-                                </li>
-                                <li class="rightBetterMenu5 geotabOptionsMenuElement sm-part-12">
-                                    <label class="geotabOptionsMenuElementLabel md-part-5 sm-part-12" id="ResetDevices">Selected: <span class="optionsMenu_filterSelectedItems"></span></label>
-                                    <div class="SingleSelectButton geotabOptionsMenuElementValue md-part-7 sm-part-12" id="resetButton">
-                                        <button id="vehicleResetSelect" class="SingleSelectButton optionsMenu_AutocompleteButton geotabButton">Reset
+                                    </li>
+                                    <li class="rightBetterMenu5 geotabOptionsMenuElement sm-part-12">
+                                        <label class="geotabOptionsMenuElementLabel md-part-5 sm-part-12" id="ResetDevices">Selected: <span class="optionsMenu_filterSelectedItems"></span></label>
+                                        <div class="SingleSelectButton geotabOptionsMenuElementValue md-part-7 sm-part-12" id="resetButton">
+                                            <button id="vehicleResetSelect" class="SingleSelectButton optionsMenu_AutocompleteButton geotabButton">Reset
                                       selection</button>
-                                    </div>
-                                </li>
+                                        </div>
+                                    </li>
 
 
-                                <li class="geotabOptionsMenuElement sm-part-12">
-                                    <label class="geotabOptionsMenuElementLabel md-part-5 sm-part-12">State</label>
-                                    <div class="geotabOptionsMenuElementValue md-part-7 sm-part-12" id="State">
-                                        <span class="ThreeSelectButton horizontalButtonSet">
+                                    <li class="geotabOptionsMenuElement sm-part-12">
+                                        <label class="geotabOptionsMenuElementLabel md-part-5 sm-part-12">State</label>
+                                        <div class="geotabOptionsMenuElementValue md-part-7 sm-part-12" id="State">
+                                            <span class="ThreeSelectButton horizontalButtonSet">
                       <input type="radio" id="stateCurrentON" class="geotabSwitchButton" name="IoxStatus">
                       <label class="ThreeSelectSingleButton geotabButton onLabelSwitcher noTranslate" for="stateCurrentON">On</label>
                       <input type="radio" id="stateCurrentAll" class="geotabSwitchButton" name="IoxStatus" checked>
@@ -186,16 +187,16 @@
                       <input type="radio" id="stateCurrentOFF" class="geotabSwitchButton" name="IoxStatus">
                       <label class="ThreeSelectSingleButton geotabButton offLabelSwitcher noTranslate" for="stateCurrentOFF">Off</label>
                     </span>
-                                    </div>
+                                        </div>
 
-                                </li>
+                                    </li>
 
 
 
-                                <li class="rightBetterMenu5 geotabOptionsMenuElement sm-part-12">
-                                    <label class="geotabOptionsMenuElementLabel md-part-5 sm-part-12">Message Status</label>
-                                    <div class="geotabOptionsMenuElementValue md-part-7 sm-part-12" id="Message_Status">
-                                        <span class="ThreeSelectButton horizontalButtonSet">
+                                    <li class="rightBetterMenu5 geotabOptionsMenuElement sm-part-12">
+                                        <label class="geotabOptionsMenuElementLabel md-part-5 sm-part-12">Message Status</label>
+                                        <div class="geotabOptionsMenuElementValue md-part-7 sm-part-12" id="Message_Status">
+                                            <span class="ThreeSelectButton horizontalButtonSet">
                       <input type="radio" id="messageStatusSent" class="geotabSwitchButton" name="messageStatus">
                       <label class="ThreeSelectSingleButton geotabButton onLabelSwitcher noTranslate" for="messageStatusSent">Sent</label>
                       <input type="radio" id="messageStatusAll" class="geotabSwitchButton" name="messageStatus" checked>
@@ -204,9 +205,9 @@
                       <label class="ThreeSelectSingleButton geotabButton offLabelSwitcher noTranslate"
                         for="messageStatusDelivered">Delivered</label>
                     </span>
-                                    </div>
-                                </li>
-
+                                        </div>
+                                    </li>
+                                </ul>
 
 
                                 <div id="startDate" class="customDateOFF"></div>
@@ -259,9 +260,10 @@
                     <div class="right-shadow" style="display: none; top: 0px; height: 275px; left: 1210px;"></div>
                 </div>
             </div>
-            <!-- <button id="ChangeGroupALL">ChangeGroupALL</button>
-            <button id="changeGroup">ChangeGroup</button> -->
         </div>
+        <!-- <button id="ChangeGroupALL">ChangeGroupALL</button>
+            <button id="changeGroup">ChangeGroup</button> -->
+    </div>
 </body>
 
 </html>
