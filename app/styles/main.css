@@ -72,7 +72,7 @@
 }
 
 .ThreeSelectButton {
-    width: 100%;
+    width: 102%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 3px;
@@ -86,12 +86,16 @@
     justify-content: center;
 }
 
+.ListOptions {
+    padding-left: 0;
+}
+
 .ThreeSelectSingleButton {
     width: 33%;
 }
 
 #rightSideMenu.rightBetterMenu2 {
-    overflow: overlay;
+    overflow: none;
 }
 
 .customDateOFF {
